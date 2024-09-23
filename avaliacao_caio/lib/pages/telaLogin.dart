@@ -20,7 +20,7 @@ class TelaloginState extends State<Telalogin>{
   String token = "";
 
    Future<void> fetchData(username, pasword) async {
-    final response = await http.post(Uri.parse("http://demo0088745.mockable.io/poslog"),
+    final response = await http.post(Uri.parse("http://demo9861509.mockable.io/login"),
       
       headers: {'Content-Type' : 'application/json'},
       body: jsonEncode({
@@ -93,7 +93,10 @@ class TelaloginState extends State<Telalogin>{
               ))
             ),
             ElevatedButton(onPressed: () => {
-              fetchData(username, pasword)
+              
+              fetchData(username, pasword),
+              Navigator.push(context, MaterialPageRoute(builder: (context) => TelaListagem()))
+
             }, 
             child: Text("Entrar")
             ),
