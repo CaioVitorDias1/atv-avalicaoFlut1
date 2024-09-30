@@ -56,7 +56,9 @@ class WTelaListagem extends State<TelaListagem> {
               Container(
               margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
               decoration: BoxDecoration(
-                // color: colors,
+                color: item['nota'] < 60? Colors.yellow 
+                :item['nota'] >=60 && item['nota'] < 100? Colors.blue
+                :Colors.green,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: ListTile(

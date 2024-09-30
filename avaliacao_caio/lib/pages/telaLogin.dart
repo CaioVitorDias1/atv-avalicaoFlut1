@@ -18,14 +18,21 @@ class TelaloginState extends State<Telalogin>{
   final TextEditingController username = TextEditingController();
   final TextEditingController pasword = TextEditingController();
   String token = "";
+  
 
    Future<void> fetchData(TextEditingController username,TextEditingController  pasword) async {
+    String user = username.toString();
+    String sen = pasword.toString();
+
     final response = await http.post(Uri.parse("http://demo5123040.mockable.io/login"),
       
+      
+      
+
       headers: {'Content-Type' : 'application/json'},
       body: jsonEncode({
-        'email': username,
-        'senha': pasword
+        'email': user,
+        'senha': sen
       })
     );
 
