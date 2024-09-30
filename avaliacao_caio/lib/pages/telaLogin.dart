@@ -19,8 +19,8 @@ class TelaloginState extends State<Telalogin>{
   final TextEditingController pasword = TextEditingController();
   String token = "";
 
-   Future<void> fetchData(username, pasword) async {
-    final response = await http.post(Uri.parse("http://demo9861509.mockable.io/login"),
+   Future<void> fetchData(TextEditingController username,TextEditingController  pasword) async {
+    final response = await http.post(Uri.parse("http://demo5123040.mockable.io/login"),
       
       headers: {'Content-Type' : 'application/json'},
       body: jsonEncode({
@@ -32,7 +32,7 @@ class TelaloginState extends State<Telalogin>{
     if(response.statusCode == 200) {
     
     final jsonResponse = json.decode(response.body);
-    token = jsonResponse['token'];
+    token = jsonResponse[0];
    
   
     } else {
@@ -43,8 +43,6 @@ class TelaloginState extends State<Telalogin>{
   @override
   void initState() {
     super.initState();
-    fetchData(username, pasword);
-
   }
 
   @override
